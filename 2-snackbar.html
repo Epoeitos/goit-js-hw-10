@@ -5,19 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snackbar</title>
-    <script type="module" crossorigin src="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-DvPDDfy5.css">
+    <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-geEDga3k.css">
   </head>
   <body>
-
-
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./1-timer.html">Timer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./2-snackbar.html">Snackbar</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
       <div class="container">
-        <a class="back-link" href="./index.html">Go back</a>
+        <form class="form">
+          <label class="input-field">
+            Delay (ms)
+            <input type="number" name="delay"  required />
+          </label>
 
-        <h1 class="main-title">
-          Snackbar
-        </h1>
+          <fieldset class="radio-btn">
+            <legend class="legend-fields">State</legend>
+            <label class="radio-input">
+              <input type="radio" name="state" value="fulfilled"  required />
+              Fulfilled
+            </label>
+            <label class="radio-input">
+              <input type="radio" name="state" value="rejected" required />
+              Rejected
+            </label>
+          </fieldset>
+
+          <button  type="submit">Create notification</button>
+        </form>
       </div>
     </main>
   </body>

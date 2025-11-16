@@ -5,19 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
-    <script type="module" crossorigin src="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-DvPDDfy5.css">
+    <script type="module" crossorigin src="/goit-js-hw-10/1-timer.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-geEDga3k.css">
   </head>
   <body>
-
+    <header class="header">
+      <div class="container">
+         <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./1-timer.html">Timer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./2-snackbar.html">Snackbar</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
       <div class="container">
-        <a class="back-link" href="./index.html">Go back</a>
-
-        <h1 class="main-title">
-          Timer
-        </h1>
-
+        <div class="timer">
+          <input type="text" id="datetime-picker" />
+          <button class="start_btn" type="button" data-start>Start</button>
+        </div>
+        <div class="timer">
+          <div class="field">
+            <span class="value" data-days>00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="field">
+            <span class="value" data-hours>00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="field">
+            <span class="value" data-minutes>00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="field">
+            <span class="value" data-seconds>00</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
       </div>
     </main>
   </body>
