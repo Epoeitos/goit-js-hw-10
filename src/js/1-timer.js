@@ -17,17 +17,17 @@ let timerId = null;
 startBtn.disabled = true;
 
 // flatpickr
-
 flatpickr(inputTime, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onValueUpdate(selectedDates) {
-    const selectedTimes = selectedDates[0];
-    if (selectedTimes > new Date()) {
+  onClose(selectedDates) {
+    const selectedTime = selectedDates[0];
+
+    if (selectedTime > new Date()) {
       startBtn.disabled = false;
-      userSelectedDate = selectedTimes;
+      userSelectedDate = selectedTime;
     } else {
       startBtn.disabled = true;
       userSelectedDate = null;
@@ -38,12 +38,10 @@ flatpickr(inputTime, {
         position: 'topRight',
       });
     }
-    return;
   },
 });
 
 // start countdown
-
 startBtn.addEventListener('click', start);
 
 function start() {
@@ -56,37 +54,38 @@ function start() {
     return;
   }
 
-// stop if previous
-
   inputTime.disabled = true;
   startBtn.disabled = true;
+
   timerId = setInterval(() => {
-    const startTime = new Date();
-    const deltaTime = userSelectedDate - startTime;
-    if (deltaTime <= 0) {
+    const now = new Date();
+    const delta = userSelectedDate - now;
+
+    if (delta <= 0) {
       clearInterval(timerId);
-      updateTimerUI(0, 0, 0, 0);
+      updateTimerUI({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
       iziToast.info({
         title: 'Time is up!',
         message: 'The countdown has finished!',
         position: 'topRight',
       });
-     inputTime.disabled = false;
-      startBtn.disabled = false;
+
+      inputTime.disabled = false;
       return;
     }
-    const time = convertMs(deltaTime);
+
+    const time = convertMs(delta);
     updateTimerUI(time);
   }, 1000);
 }
 
 // helpers
-
 function formatTime(value) {
   return String(value).padStart(2, '0');
 }
 
-function updateTimerUI({ days = 0, hours = 0, minutes = 0, seconds = 0}) {
+function updateTimerUI({ days = 0, hours = 0, minutes = 0, seconds = 0 }) {
   daysEl.textContent = formatTime(days);
   hoursEl.textContent = formatTime(hours);
   minsEl.textContent = formatTime(minutes);
